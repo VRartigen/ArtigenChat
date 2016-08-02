@@ -17,7 +17,7 @@
 'use strict';
 
 require('dotenv').config({silent: true});
-
+var https    = require("https");
 var express  = require('express'),
   app        = express(),
   fs         = require('fs'),
@@ -40,8 +40,8 @@ app.use('/api/text-to-speech/', require('./tts-token.js'));
 // if bluemix credentials exists, then override local
 var credentials =  extend({
   url: 'https://gateway.watsonplatform.net/dialog/api',
-  username: '7b0b9c3a-9bb2-4722-a95d-c404c308ee69',
-  password: 'ADJJlQYFo0VP',
+  username: '45e458d0-c8dc-462b-815e-4ef781250eec',
+  password: '2dVzxWc2D4Lp',
   version: 'v1'
 }, bluemix.getServiceCreds('dialog')); // VCAP_SERVICES
 
@@ -56,7 +56,7 @@ var dialog_id_in_json = (function() {
 })();
 
 
-var dialog_id = process.env.DIALOG_ID || dialog_id_in_json || '31635e4b-411b-4aba-9cdf-7a837830280e';
+var dialog_id = process.env.DIALOG_ID || dialog_id_in_json || '751213be-4488-45e5-9fe9-5636d70906cc';
 
 // Create the service wrapper
 var dialog = watson.dialog(credentials);
@@ -80,10 +80,17 @@ app.post('/profile', function(req, res, next) {
       res.json(results);
   });
 });
+var options = {
+  key: fs.readFileSync('server.key'),
+  cert: fs.readFileSync('server.crt')
+};
+
 
 // error-handler settings
 require('./config/error-handler')(app);
 
+
 var port = process.env.VCAP_APP_PORT || 3000;
-app.listen(port);
+https.createServer(options, app).listen(port);
+//app.listen(port);
 console.log('listening at:', port);

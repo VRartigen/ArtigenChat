@@ -397,7 +397,7 @@ body {
 .base--STYLED h1 {
   font-size: 2.44141em;
   font-weight: 700;
-  color: #325c80; }
+  color: #330000; }
   @media (min-width: 500px) {
     .base--h1,
     .base--STYLED h1 {
@@ -1101,11 +1101,11 @@ pre[class*=" language-"] {
     display: table;
     width: 100%; }
     .chat-box--item_WATSON {
-      background-color: #ececec; }
+      background-color: #ffffcc; }
       .chat-box--item_WATSON > * {
         float: left; }
     .chat-box--item_YOU {
-      background-color: #f4f4f4; }
+      background-color: #ffffcc; }
       .chat-box--item_YOU > * {
         float: right; }
     .chat-box--item_HIDDEN {
@@ -1134,9 +1134,9 @@ pre[class*=" language-"] {
     margin-top: 0rem;
     padding: 1rem; }
     .chat-box--item_WATSON .chat-box--message {
-      background-color: #ececec; }
+      background-color: #ffffcc; }
     .chat-box--item_YOU .chat-box--message {
-      background-color: #f4f4f4;
+      background-color: #ffffcc;
       text-align: right; }
   .chat-box--message-vertical {
     vertical-align: middle;
