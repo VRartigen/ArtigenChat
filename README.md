@@ -36,6 +36,6 @@
   
   2. Go to the project folder in a terminal and run the `npm install` command.
   3. Start the application by running `node app.js`.
-  4. Open `http://localhost:3000` to see the running application.
+  4. Open `https://localhost:3000` to see the running application.
 
 
